@@ -1,0 +1,25 @@
+<%= form_with scope: :review,url:reviews_path,local:true do |f|%>
+  <%= if @review.errors.any? %>
+  <div id="error_explanation">
+     <%= pluralize(@review.errors.count, "error") %>
+        <h2>Prohibited this review from being saved:</h2>
+          <ul>
+          <% review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+    <% end %>
+  <%end%>
+  <p>
+  <%= f.label :Gym_id %>
+  <%= f.text_field :Gym_id%></br></br>
+  <%= f.label :Description %>
+  <%= f.text_area :Description%></br></br>
+  <%= f.label :trainee_id %>
+  <%= f.text_field :trainee_id%></br></br>
+  </p>
+  </br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
